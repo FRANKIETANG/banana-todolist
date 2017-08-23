@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './UserDialog.css'
+import {signUp} from './leanCloud'
 
 export default class UserDialog extends Component{
     constructor(props){
@@ -17,7 +18,17 @@ export default class UserDialog extends Component{
             selected: e.target.value
         })
     }
-    signUp(e){}
+    signUp(e){
+        e.preventDefault()
+        let {username,password} = this.state.formData
+        let success = (user)=>{
+            console.log(user)
+        }
+        let error = (error)=>{
+            console.log(error)
+        }
+        signUp(username,password,success,error)
+    }
     signIp(e){}
     changeFormData(key,e){
         let stateCopy = JSON.parse(JSON.stringify(this.state))
@@ -33,6 +44,7 @@ export default class UserDialog extends Component{
                     <input type="text" 
                     value={this.state.formData.username} 
                     onChange={this.changeFormData.bind(this,'username')}/>
+                    {/* bind 不仅可以绑定 this，还可以绑定第一个参数 */}
                 </div>
                 <div className="row">
                     <label>密码</label>
