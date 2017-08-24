@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class SignInFrom extends Component {
+export default class SignInForm extends Component {
     render(){
         return(
             <form className="signIn" 
-            onSubmit={this.props.onSubmit}> {/* 登录*/}
+            onSubmit={this.props.onSubmit.bind(this)}> {/* 登录*/}
                 <div className="row">
                     <label>用户名</label>
                     <input type="text" 
@@ -14,7 +14,7 @@ export default class SignInFrom extends Component {
                 <div className="row">
                     <label>密码</label>
                     <input type="password" 
-                    value={this.state.formData.password} 
+                    value={this.props.formData.password} 
                     onChange={this.props.onChange.bind(null,'password')}/>
                 </div>
                 <div className="row actions">
