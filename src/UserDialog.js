@@ -26,8 +26,15 @@ export default class UserDialog extends Component{
             console.log(user)
         }
         let error = (error)=>{
-            alert(error)
-        }
+            switch(error.code){
+                case 202:
+                alert('用户名已被占用')
+                break
+            default:
+                alert(error)
+                break
+            }
+        }    
         signUp(username,password,success,error)
     }
     signIn(e){
@@ -38,7 +45,26 @@ export default class UserDialog extends Component{
             console.log(user)
         }
         let error = (error)=>{
-            alert(error)
+            switch(error.code){               
+                case 210:
+                alert('用户名与密码不匹配')
+                break
+                case 211:
+                alert('找不到用户')
+                break 
+                case 217:
+                alert('无效的用户名，不允许空白用户名')
+                break
+                case 218:
+                alert('无效的密码，不允许空白密码')
+                break 
+                case 219:
+                alert('用户登录失败的次数大于 6 次，请15分钟后再试')
+                break              
+            default:
+                alert(error)
+                break                
+            }
         }
         signIn(username,password,success,error)
     }
