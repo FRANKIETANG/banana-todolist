@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './TodoInput.css'
 
 export default function (props) {
@@ -8,8 +8,10 @@ export default function (props) {
     onChange={changeTitle.bind(null,props)}/>
 }
 function submit(props,e) {
-    if (e.key==='Enter') {
-        props.onSubmit(e)
+    if (e.key === 'Enter') {
+        if (e.target.value.trim() !== ''){
+            props.onSubmit(e)
+        }
     }
 }
 function changeTitle(props,e){
