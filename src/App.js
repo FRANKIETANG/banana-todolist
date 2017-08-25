@@ -113,7 +113,7 @@ class App extends Component {
       console.log(error)  
     })
   }
-  delete(e,todo){
+  delete(e,todo){ //不应该直接删除，而是将数据标记为 deleted： true
     TodoModel.destroy(todo.id,()=>{
       todo.deleted = true
       this.setState(this.state)

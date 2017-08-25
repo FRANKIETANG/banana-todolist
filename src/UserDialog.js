@@ -19,14 +19,30 @@ export default class UserDialog extends Component{
     signUp(e){
         e.preventDefault()
         let {email,username,password} = this.state.formData
+        let isLeagal = this.checkFormData.call(this,email,username,password)
+        if (isLeagal === false){
+            return
+        }
         let success = (user)=>{
             this.props.onSignUp.call(null,user)
             console.log(user)
         }
         let error = (error)=>{
             switch(error.code){
+                case 125:
+                alert('电子邮箱地址无效')  
+                break                 
+                case 200:
+                alert('没有提供用户名，或者用户名为空')
+                break
                 case 202:
                 alert('用户名已被占用')
+                break
+                case 203:
+                alert('电子邮箱地址已经被占用')
+                break
+                case 217:
+                alert('用户名不能含有空格')
                 break
             default:
                 alert(error)
@@ -43,18 +59,12 @@ export default class UserDialog extends Component{
             console.log(user)
         }
         let error = (error)=>{
-            switch(error.code){               
+            switch(error.code){            
                 case 210:
                 alert('用户名与密码不匹配')
                 break
                 case 211:
                 alert('找不到用户')
-                break 
-                case 217:
-                alert('无效的用户名，不允许空白用户名')
-                break
-                case 218:
-                alert('无效的密码，不允许空白密码')
                 break 
                 case 219:
                 alert('用户登录失败的次数大于 6 次，请15分钟后再试')
@@ -65,6 +75,22 @@ export default class UserDialog extends Component{
             }
         }
         signIn(username,password,success,error)
+    }
+    checkFormData(email,username,password){
+        let regEmail = new RegExp("^\\w+@[\\w-]+\\.+[\\w]")
+        let regUsername = new RegExp("\\w{3,10}")
+        let regPassword = new RegExp("\\w{6,20}")
+        if(!regEmail.test(email)){
+            alert('邮箱地址至少包含@')
+            return false
+        }else if(!regUsername.test(username)){
+            alert('用户名长度为3-10个字符')
+            return false
+        }else if(!regPassword.test(password)){
+            alert('密码长度为6-20个字符')
+            return false
+        }
+        return true
     }
     changeFormData(key,e){
         let stateCopy = JSON.parse(JSON.stringify(this.state))
