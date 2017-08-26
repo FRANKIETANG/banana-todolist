@@ -15,14 +15,9 @@ class App extends Component {
       newTodo: '',
       todoList: []
     }
-    let user = getCurrentUser()
-    if(user){
-      TodoModel.getByUser(user,(todos)=>{
-        let stateCopy = JSON.parse(JSON.stringify(this.state))
-        stateCopy.todoList = todos
-        this.setState(stateCopy)
-      })
-    }
+
+    this.initTodoGetByUser()
+
   }
 
   render() {
@@ -61,11 +56,13 @@ class App extends Component {
           this.state.user.id ? null :
           <UserDialog 
           onSignUp={this.onSignUpOrSignIn.bind(this)}
-          onSignIn={this.onSignUpOrSignIn.bind(this)}/>
+          onSignIn={this.onSignUpOrSignIn.bind(this)}
+          todoInit={this.initTodoGetByUser.bind(this)}/>
         }
       </div>
     )
   }
+  
   signOut(){
     signOut()
     let stateCopy = JSON.parse(JSON.stringify(this.state))
@@ -79,6 +76,16 @@ class App extends Component {
   }
   componentDidUpdate(){
     
+  }
+  initTodoGetByUser(){
+    let user = getCurrentUser()
+    if(user){
+      TodoModel.getByUser(user,(todos)=>{
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.todoList = todos
+        this.setState(stateCopy)
+      })
+    }    
   }
   toggle(e,todo){
     let oldStatus = todo.status

@@ -56,6 +56,7 @@ export default class UserDialog extends Component{
         let {username,password} = this.state.formData
         let success = (user)=>{
             this.props.onSignIn.call(null,user)
+            this.props.todoInit.call(null)
             console.log(user)
         }
         let error = (error)=>{
@@ -97,6 +98,20 @@ export default class UserDialog extends Component{
         stateCopy.formData[key] = e.target.value
         this.setState(stateCopy)
     }
+    showForgotPassword(){
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.selectedTeb = 'forgotPassword'
+        this.setState(stateCopy)
+    }
+    returnToSignIn(){
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.selectedTeb = 'signInOrSignUp'
+        this.setState(stateCopy)
+    }
+    resetPassword(e){
+        e.preventDefault()
+        sendPasswordResetEmail(this.state.formData.email)
+    }    
     render(){
         return(
             <div className="UserDialog-Wrapper">
@@ -126,19 +141,5 @@ export default class UserDialog extends Component{
                 </div>
             </div>
         )
-    }
-    showForgotPassword(){
-        let stateCopy = JSON.parse(JSON.stringify(this.state))
-        stateCopy.selectedTeb = 'forgotPassword'
-        this.setState(stateCopy)
-    }
-    returnToSignIn(){
-        let stateCopy = JSON.parse(JSON.stringify(this.state))
-        stateCopy.selectedTeb = 'signInOrSignUp'
-        this.setState(stateCopy)
-    }
-    resetPassword(e){
-        e.preventDefault()
-        sendPasswordResetEmail(this.state.formData.email)
     }
 }
