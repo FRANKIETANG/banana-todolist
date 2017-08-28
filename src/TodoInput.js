@@ -2,7 +2,9 @@ import React from 'react'
 import './TodoInput.css'
 
 export default function (props) {
-    return <input type="text" value={props.content} 
+    return <input type="text" 
+    placeholder="你要做什么吗？"
+    value={props.content} 
     className="TodoInput" 
     onKeyPress={submit.bind(null,props)} 
     onChange={changeTitle.bind(null,props)}/>

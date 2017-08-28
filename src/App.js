@@ -39,13 +39,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>
-          {this.state.user.username||'我'}的待办
-          {this.state.user.id ? 
-          <button onClick={this.signOut.bind(this)}>
-            登出
-          </button> : null}
-        </h1>
+        <h4>
+          <span>
+            {this.state.user.username||'我'} 的待办
+            {this.state.user.id ? 
+            <button onClick={this.signOut.bind(this)}>
+              登出
+            </button> : null}
+          </span>  
+        </h4>
         <div className='inputWapper'>
           <TodoInput content={this.state.newTodo} 
           onSubmit={this.addTodo.bind(this)} 
@@ -109,7 +111,7 @@ class App extends Component {
   addTodo(e){
     let newTodo={
       title: e.target.value,
-      status: null,
+      status: '',
       deleted: false
     }
     TodoModel.create(newTodo,(id)=>{

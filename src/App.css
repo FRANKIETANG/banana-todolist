@@ -1,17 +1,94 @@
 .App {
   color: #333;
   border: 1px solid #aaa;
-  border-radius: 4px;
+  border-radius: 20px;
   background: white;
   margin: 2em;
-  padding: 0 1em;
   min-height: 20em;
-  min-width: 32em;
-  box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.15);
+  min-width: 85%;
+  border: 8px solid #2c3033;
+  box-shadow: 0 0 0px 1px rgba(255,255,255,.4),
+						0 0 0px 3px #2c3033;
 }
 .App .todoList li:nth-child(odd){
   background: #eee;
 }
 .App .todoList li:nth-child(even){
   background: transparent;
+}
+.App .todoList li:last-child {
+  margin-bottom: 1em;
+}
+
+/*todo title*/
+.App h4 {
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  width: 100%;
+  height: 3em;
+  border-radius: 10px 10px 0 0px;
+  background-image: linear-gradient(#687480 0%, #3b4755 100%);
+  font: bold 18px/50px arial;
+  text-align: center;
+	color: white;
+	box-shadow: inset 0 -2px 3px 2px rgba(0,0,0,.4),
+						0 2px 2px 2px rgba(0,0,0,.4);
+}
+
+.App h4 span {
+	display: block;
+	width: 100%;
+	height: 90%;
+	border-bottom: dashed 2px #54687a;  
+}
+
+/*sign out btn*/
+.App h4 span button {
+  margin-left: 0.8em;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background: #45515e;
+  box-shadow: 0 5px 1px #616d7a;
+  font-size: 16px;       
+  padding: 3px;
+}
+
+.App h4 span button:hover {
+  background: #45515e;
+  box-shadow: 0 5px 1px #616d7a;
+  transition: .5s;    
+}
+
+.App h4 span button:active {
+    border-top: 5px solid white;
+    box-shadow: none;
+    transition: .5s;    
+}
+
+/*delete btn*/
+.TodoItem button {
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background: #c51414;
+  box-shadow: 0 5px 1px #790808;
+  font-size: 14px;       
+  padding: 2px;
+}
+
+.TodoItem button:hover {
+  background: #c51414;
+  box-shadow: 0 5px 1px #790808;
+  transition: .5s;    
+}
+
+.TodoItem button:active {
+    border-top: 5px solid white;
+    box-shadow: none;
+    transition: .5s;    
 }

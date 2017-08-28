@@ -1,5 +1,6 @@
 body {
-  background: #ddd;
+  background-color: #dee600;
+  background-image: url(http://www.transparenttextures.com/patterns/3px-tile.png);
 }
 #root {
   display: flex;
