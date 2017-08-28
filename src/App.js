@@ -16,7 +16,9 @@ class App extends Component {
       todoList: []
     }
 
-    this.initTodoGetByUser()
+    this.initTodoGetByUser() 
+    //要把代码封装起来，让他登录成功之后引用。为什么刷新一遍会有 todolist 
+    //那是因为重新跑了一遍之个构造函数。
 
   }
 
@@ -84,6 +86,7 @@ class App extends Component {
         let stateCopy = JSON.parse(JSON.stringify(this.state))
         stateCopy.todoList = todos
         this.setState(stateCopy)
+        console.log('从leancloud获取用户信息',this.state)
       })
     }    
   }

@@ -18,15 +18,21 @@ export default class SignInOrSignUp extends Component {
     render(){
         return(
             <div className="signInOrSignUp">
-                <nav>
-                    <label><input type="radio" value="signUp" 
-                    checked={this.state.selected === 'signUp'} 
-                    onChange={this.switch.bind(this)}/> 注册
-                    </label>
-                    <label><input type="radio" value="signIn" 
-                    checked={this.state.selected === 'signIn'} 
-                    onChange={this.switch.bind(this)}/> 登录
-                    </label>
+                <nav className="radio-btn">
+                    <div>       
+                        <input type="radio" value="signUp"
+                        id="radio01" 
+                        checked={this.state.selected === 'signUp'} 
+                        onChange={this.switch.bind(this)}/>
+                        <label htmlFor="radio01"><span></span> 注册</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="signIn"
+                        id="radio02" 
+                        checked={this.state.selected === 'signIn'} 
+                        onChange={this.switch.bind(this)}/>
+                        <label htmlFor="radio02"><span></span> 登录</label>
+                    </div>
                 </nav>
                 <div className="panes">
 

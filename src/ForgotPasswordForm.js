@@ -7,11 +7,11 @@ export default class ForgotPasswordFrom extends Component {
                 <h3>
                     重置密码
                 </h3>
-                <form className="forgotPassword" 
+                <form className="forgotPasswordFrom" 
                 onSubmit={this.props.onSubmit}>
                     <div className="row">
-                        <label>邮箱</label>
                         <input type="text" 
+                        placeholder="邮箱"
                         value={this.props.formData.email}
                         onChange={this.props.onChange.bind(this,'email')}/>
                     </div>

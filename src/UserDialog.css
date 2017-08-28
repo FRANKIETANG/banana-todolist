@@ -7,11 +7,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: hsla(0, 0%, 0%, 0.40)
+    background-color: #dee600;
+    background-image: url(http://www.transparenttextures.com/patterns/3px-tile.png);
 }
 .UserDialog{
     border-radius: 4px;
-    min-width: 20em;
+    min-width: 60%;
     background: white;
     border: 1px solid #aaa;
     box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.35);
@@ -26,6 +27,7 @@
     cursor: pointer;
 }
 .UserDialog .signInOrSignUp .panes{
+    text-align: center;   
     padding: 0 1em 1em;
 }
 .UserDialog .forgotPassword h3{
@@ -35,14 +37,13 @@
     padding: 0 1em 1em;
 }
 .UserDialog form .row{
-    display: flex;
     padding: 0.3em 0;
 }
 .UserDialog form .row label:first-child{
     width: 4em;
 }
 .UserDialog form .row.actions{
-    padding-left: 4em;
+    padding:0 auto;
 }
 .UserDialog form .row.actions button{
     margin-right: 0.5em;
@@ -50,4 +51,145 @@
 .UserDialog button{
     font: inherit;
     padding: 0.2em;
+}
+
+/*UserDialog radio button*/
+.UserDialog .signInOrSignUp .radio-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.UserDialog .signInOrSignUp input[type="radio"] {
+    display: none;
+}
+
+.UserDialog .signInOrSignUp input[type="radio"] + label {
+    color: #292321;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.UserDialog .signInOrSignUp input[type="radio"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.UserDialog .signInOrSignUp input[type="radio"] + label span {
+    background-color: #292321;
+}
+
+.UserDialog .signInOrSignUp input[type="radio"]:checked + label span {
+    background-color: #d6de10;
+}
+
+.UserDialog .signInOrSignUp input[type="radio"] + label span,
+.UserDialog .signInOrSignUp input[type="radio"]:checked + label span {
+    -webkit-transition: background-color 0.4s linear;
+    -o-transition: background-color 0.4s linear;
+    -moz-transition: background-color 0.4s linear;
+    transition: background-color 0.4s linear;
+}
+
+/*UserDialog input*/
+
+.UserDialog .signInOrSignUp .panes input,button{
+    outline: none !important;
+}
+
+.UserDialog .signInOrSignUp .panes input {
+	border: none;
+	border-bottom: 1px solid #d6de10;
+	width: 85%;
+	color: #eff903;
+	text-align: center;
+	font-size: 21px;
+	font-weight:100;
+	margin-bottom:25px;    
+}
+
+.UserDialog .signInOrSignUp .panes ::-webkit-input-placeholder {
+    color: #d6de10;
+	font-weight:100;
+}
+
+.UserDialog .signInOrSignUp .panes :-moz-placeholder {
+    color: #d6de10;  
+	font-weight:100;
+}
+
+.UserDialog .signInOrSignUp .panes ::-moz-placeholder {
+    color: #d6de10;  
+	font-weight:100;
+}
+
+.UserDialog .signInOrSignUp .panes :-ms-input-placeholder {  
+    color: #d6de10; 
+	font-weight:100;
+}
+
+.UserDialog .forgotPasswordFrom input,button {
+    outline: none !important;
+}
+
+.UserDialog .forgotPasswordFrom input {
+	border: none;
+	border-bottom: 1px solid #d6de10;
+	width: 100%;
+	color: #eff903;
+	text-align: center;
+	font-size: 21px;
+	font-weight:100;
+	margin-bottom:25px;    
+}
+
+.UserDialog .forgotPasswordFrom ::-webkit-input-placeholder {
+    color: #d6de10;
+	font-weight:100;
+}
+
+.UserDialog .forgotPasswordFrom :-moz-placeholder {
+    color: #d6de10;  
+	font-weight:100;
+}
+
+.UserDialog .forgotPasswordFrom ::-moz-placeholder {
+    color: #d6de10;  
+	font-weight:100;
+}
+
+.UserDialog .forgotPasswordFrom :-ms-input-placeholder {  
+    color: #d6de10; 
+	font-weight:100;
+}
+
+/*UserDialog btn*/
+.UserDialog form .row.actions button {
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    background: #eff903;
+    box-shadow: 0 5px 1px #d6de10;
+    font-size: 18px;
+    padding: 10px 30px;   
+}
+
+.UserDialog form .row.actions button:hover {
+    background: #eff903;
+    box-shadow: 0 5px 1px #d6de10;
+    transition: .5s;    
+}
+
+.UserDialog form .row.actions button:active {
+    border-top: 5px solid white;
+    box-shadow: none;
+    transition: .5s;    
 }
