@@ -75,14 +75,14 @@
   border: 0;
   border-radius: 5px;
   outline: none;
-  background: #c51414;
+  background: #790808;
   box-shadow: 0 5px 1px #790808;
   font-size: 14px;       
   padding: 2px;
 }
 
 .TodoItem button:hover {
-  background: #c51414;
+  background: #790808;
   box-shadow: 0 5px 1px #790808;
   transition: .5s;    
 }

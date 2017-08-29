@@ -41,7 +41,7 @@ class App extends Component {
       <div className="App">
         <h4>
           <span>
-            {this.state.user.username||'我'} 的待办
+            {this.state.user.username||'我'} 的任务
             {this.state.user.id ? 
             <button onClick={this.signOut.bind(this)}>
               登出
